@@ -1,0 +1,48 @@
+﻿@model List<WebApp.Models.PacienteGeneralViewModel>
+
+
+@* <p><strong>ID: </strong>@Model[0].IdPaciente</p>
+<p><strong>Nombres: </strong>@Model[0].Nombres</p>
+<p><strong>Informacion General: </strong>@Model[1].InformacionGeneral</p> *@
+@* Consumir Lista View Model y mostrar informacion *@
+<h2>Lista Pacientes</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Informacion General</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paciente in Model)
+        {
+            <tr>                
+                <td>@paciente.Nombres</td>
+                <td>@paciente.PrimerApellido</td>
+                <td>@paciente.SegundoApellido</td>
+                <td>@paciente.FechaNacimiento</td>
+                <td>@paciente.InformacionGeneral</td>
+                <td>
+                    <form method="post" action="@Url.Action("Eliminar", "Pacientes", new { id = paciente.IdPaciente })">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="@Url.Action("Editar", "Pacientes", new { id = paciente.IdPaciente })">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Editar</button>
+                    </form>
+                </td>
+            </tr>    
+            
+        }
+    </tbody>
+</table>
+
+
+

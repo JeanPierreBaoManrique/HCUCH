@@ -1,0 +1,32 @@
+﻿@model WebApp.Models.PacienteGeneralViewModel
+
+<h2>Registrar Nuevo Paciente</h2>
+<table>
+@using (Html.BeginForm("Registrar", "Pacientes", FormMethod.Post,new { enctype = "multipart/form-data"}))
+{
+        <tr>
+            <td><input type="text" id="idpaciente" name="idpaciente" value="@Model.IdPaciente" style="display:none;" /></td>
+            <td><input type="hidden" name="idpacientex" value="@Model.IdPaciente" /></td>
+        </tr>
+
+        <tr>
+            <td>Nombres:</td>
+            <td><input type="text" id="nombres" name="nombresReg" value="@Model.Nombres" /></td>
+        </tr>
+        <tr>
+            <td>Primer Apellido:</td>
+            <td><input type="text" id="primerapellido" name="primerapellidoReg" value="@Model.PrimerApellido"/></td>
+        </tr>
+        <tr>
+            <td>Segundo Apellido:</td>
+            <td><input type="text" id="segundopellido" name="segundopellidoReg" value="@Model.SegundoApellido"/></td>
+        </tr>
+        <tr>
+            <td>Fecha Nacimiento:</td>
+            <td><input type="text" id="fechanacimiento" name="fechanacimientoReg" value="@Model.FechaNacimiento"/></td>
+        </tr>
+        <tr>
+            <td><button title="Guardar Paciente">Guardar</button></td>
+        </tr>
+}
+</table>

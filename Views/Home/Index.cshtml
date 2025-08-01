@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;    
+}
+
+<link href="~/css/home.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<html>
+<head>
+
+</head>
+<body class="body">
+    <button class="buttonRojo" onclick="MostrarClick()">Haz click</button>
+    <button class="buttonVerde">Haz click</button>
+    <button class="buttonVerde">Haz click</button>
+    <button class="buttonVerde">Haz click</button>
+    <button class="buttonVerde">Haz click</button>
+    <button class="buttonVerdeClick" onclick="MostrarClick()">Haz click</button>
+
+
+    <button class="ButtonVerdeyBlanco">Grabar</button>
+    <button class="btn btn-primary">Grabar</button>
+    <button class="btn btn-danger">Grabar</button>
+    <button class="btn btn-success">Grabar</button>
+    <button class="btn-info">Grabar</button>
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-3"><button class="btn btn-success" style="width:100%">8 columnas</button></div>
+        <div class="col-2"><button class="btn btn-success" style="width:100%">8 columnas</button></div>
+        <div class="col-2"><button class="btn btn-success" style="width:100%">8 columnas</button></div>
+        <div class="col-3"><button class="btn btn-success" style="width:100%">8 columnas</button></div>
+        <div class="col-2"><button class="btn btn-danger" style="width:100%">2 columnas</button></div>
+
+    </div>
+
+    <div class="row">
+        <p id="ptitulo">Texto al cargar web</p>
+        <script type="text/javascript">
+            // document.getElementbyId("ptitulo")
+            document.getElementById("ptitulo").innerText = "Texto manipulado desde el DOM - antes de cargar la web";
+
+        </script>
+    </div>
+
+    <div class="row">
+        <form onsubmit="return validar()">
+            Ingresa Nombre : <input id="input_nombre" />
+            <button class="btn btn-success">Enviar</button>
+        </form>
+        <script>
+                function validar(){
+                    var valor = document.getElementById("input_nombre").value;
+                    if (valor === '') { alert("El nombre es obligatorio"); return false; }
+                    return true;
+                }
+        </script>
+    </div>
+
+    <div class="row">
+        <p id="ptitulocolor" style="color:red;">Color del texto al cargar la web</p>
+        <button id="btnCambiarColor" onclick="CambiarColor()">Cambiar Color</button>
+        <script type="text/javascript">
+            function CambiarColor(){
+
+                document.getElementById("ptitulocolor").style.color = "blue" ;
+                document.getElementById("ptitulocolor").innerText = "Cambiar color texto";
+            }
+        </script>
+    </div>
+
+
+</body>
+</html>
