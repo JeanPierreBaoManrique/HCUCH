@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+*.suo
+
+# Build
+bin/
+obj/
+*.cache
+*.vsidx
+*.editorconfig
+*.dll
+*.pdb
